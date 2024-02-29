@@ -15,8 +15,6 @@ global with sharing class UpsertCarResource {
             List<Request> lstRequest = createRequest(request);
             UpsertCarService service = ((UpsertCarService) Injector.getInstance().instantiate(UpsertCarService.class));
             lstResponse = service.upsertCars(lstRequest);
-
-            System.debug('### lstResponse = ' + lstResponse);
            
             if (lstResponse != null) {
                 RestContext.response.responseBody = Blob.valueOf(JSON.serialize(lstResponse));
@@ -28,7 +26,6 @@ global with sharing class UpsertCarResource {
             error = ex.getMessage() + '. Número da linha com erro: ' + ex.getLineNumber() + '. Classe: ' + ex.getStackTraceString().substringAfter('\n');
         }
 
-        System.debug('### error = ' + error);
         LogsService.addLogRestResource(RestContext.request, RestContext.response, hasException, error);
         
         return lstResponse;
