@@ -1,4 +1,4 @@
-public inherited sharing class AccountsSelector extends fflib_SObjectSelector {
+public class AccountsSelector extends fflib_SObjectSelector {
 
     public Schema.SOBjectType getSObjectType() {
         return Account.SOBjectType;

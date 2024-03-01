@@ -13,4 +13,9 @@ public class Injector {
             return instance;
         }
     }
+
+    public Object instantiate(Type classType) {
+        Object instance = classType.newInstance();
+        return instance;
+    }
 }

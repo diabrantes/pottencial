@@ -1,5 +1,5 @@
 public with sharing class UpsertCarService {
-    public static List<UpsertCarResource.Response> lstResponse = new List<UpsertCarResource.Response>();
+    private static List<UpsertCarResource.Response> lstResponse = new List<UpsertCarResource.Response>();
 
     public List<UpsertCarResource.Response> upsertCars(List<UpsertCarResource.Request> lstRequest) {
         Map<String, Integer> mapIndex = new Map<String, Integer>();
@@ -19,6 +19,7 @@ public with sharing class UpsertCarService {
         // Busca das Accounts existentes
         if (setAccountIdentifiers != null && !setAccountIdentifiers.isEmpty()) {
             List<Account> lstAccounts = ((AccountsSelector) Injector.getInstance().instantiate(AccountsSelector.class)).selectByIdentifier(setAccountIdentifiers);
+
             if (lstAccounts != null && !lstAccounts.isEmpty()) {
                 for (Account iAccount : lstAccounts) {
                     mapAccountByIdentifier.put(iAccount.Identificador__c, iAccount);

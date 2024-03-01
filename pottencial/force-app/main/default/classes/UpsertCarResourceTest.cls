@@ -64,11 +64,12 @@ public with sharing class UpsertCarResourceTest {
 
     }
 
-    private static UpsertCarResource.Request buildRequest(String chassi, String combustivel, String renavam, String cor, String modelo, String fabricante, String placa, String situacao, Decimal km) {
+    public static UpsertCarResource.Request buildRequest(String chassi, String combustivel, String renavam, String cor, String modelo, String fabricante, String placa, String situacao, Decimal km) {
         UpsertCarResource.Request req = new UpsertCarResource.Request();
         req.chassi = chassi;
         req.combustivel = combustivel;
         req.renavam = renavam;
+        req.fabricante = fabricante;
         req.cor = cor;
         req.modelo = modelo;
         req.placa = placa;
@@ -83,6 +84,7 @@ public with sharing class UpsertCarResourceTest {
         resp.chassi = chassi;
         resp.combustivel = combustivel;
         resp.renavam = renavam;
+        resp.fabricante = fabricante;
         resp.cor = cor;
         resp.modelo = modelo;
         resp.placa = placa;

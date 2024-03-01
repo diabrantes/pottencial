@@ -1,7 +1,7 @@
 @RestResource(urlMapping='/upsertCars/*')
 global with sharing class UpsertCarResource {
     
-    @HttpPost
+    @HttpPut
     global static List<Response> upsertCars() {
         if (RestContext.request.requestBody == null) {
             return null;
@@ -43,7 +43,6 @@ global with sharing class UpsertCarResource {
         return lstRequest;
     }
 
-    // Classe interna para representar a requisição de carro
     global class Request {
         public String chassi;
         public String combustivel;
@@ -55,8 +54,7 @@ global with sharing class UpsertCarResource {
         public String situacaoVeiculo;
         public Decimal quilometragem;
     }
-    
-    // Classe interna para representar a resposta da criação do carro
+
     global class Response {
         public String chassi;
         public String combustivel;
